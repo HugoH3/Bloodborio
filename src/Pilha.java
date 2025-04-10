@@ -1,45 +1,55 @@
-public class Pilha {
-    Node head;
-    int tamanho, quantidade;
+public class Pilha<T> {
+    private Node<T> topo;
+    private int tamanhoMaximo;
+    private int quantidade;
 
-    public Pilha(int tamanho) {
-        this.tamanho = tamanho;
+    public Pilha(int tamanhoMaximo) {
+        this.tamanhoMaximo = tamanhoMaximo;
+        this.quantidade = 0;
+        this.topo = null;
     }
 
-
-    public void push(int data) { // Metodo para adicionar um item ao topo da pilha
-        Node newNode = new Node(data);
-        if(head == null){
-            head = newNode;
-            quantidade = 1;
-
+    public void push(T data) {
+        if (isFull()) {
+            System.out.println("ERRO: Pilha cheia");
+            return;
         }
-        else{
-            if(quantidade < tamanho) {
-                newNode.next = head;
-                head = newNode;
-                quantidade++;
-            }
-        }
-    }
-    public int pop() {
-        int poppedItem = head.data;
-        head = head.next;
-        quantidade--;
 
-        return poppedItem;
-
+        Node<T> novo = new Node<>(data);
+        novo.next = topo;
+        topo = novo;
+        quantidade++;
     }
-    public int peek(){
-        if(isEmpty()){
+
+    public T pop() {
+        if (isEmpty()) {
             System.out.println("ERRO: Pilha vazia");
+            return null;
         }
-        return head.data;
+
+        T dadoRemovido = topo.data;
+        topo = topo.next;
+        quantidade--;
+        return dadoRemovido;
     }
-    public boolean isEmpty(){
-        return head == null; // Retorna o valor booleano dessa operacao logica
+
+    public T peek() {
+        if (isEmpty()) {
+            System.out.println("ERRO: Pilha vazia");
+            return null;
+        }
+        return topo.data;
     }
-    public boolean isFull(){
-        return quantidade == tamanho;
+
+    public boolean isEmpty() {
+        return topo == null;
+    }
+
+    public boolean isFull() {
+        return quantidade == tamanhoMaximo;
+    }
+
+    public int size() {
+        return quantidade;
     }
 }

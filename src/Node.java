@@ -1,11 +1,12 @@
-public class Node {
+public class Node<T> {
 
     // Declarando os atributos de um Node
-    int data;
-    Node prev, next;
+    T data;
+    Node<T> prev;
+    Node<T> next;
 
     // Construtor
-    public Node(int data) {
+    public Node(T data) {
         this.data = data;
 
         // Sempre que um Node for criado, os atributos e anterior terao valores nulos
