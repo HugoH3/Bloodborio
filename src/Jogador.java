@@ -3,9 +3,9 @@ public class Jogador {
     private String nome;
     private String senha;
     private int saldoMoedas;
-    private Lista<Personagem> personagens;
+    private Lista personagens;
 
-    public Jogador(int idJogador, String nome, String senha, int saldoMoedas, Lista<Personagem> personagens) {
+    public Jogador(int idJogador, String nome, String senha, int saldoMoedas, Lista personagens) {
         this.idJogador = idJogador;
         this.nome = nome;
         this.senha = senha;
