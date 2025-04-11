@@ -51,4 +51,8 @@ public class Lista<T> {
     public Node<T> getHead() {
         return head;
     }
+
+    public Node<T> getTail() {
+        return tail;
+    }
 }

@@ -9,6 +9,15 @@ public class Personagem extends Entidade{
         this.xpTotal = xpTotal;
     }
 
+    public void usarHabilidade(Entidade alvo, int opcao) {
+        if(opcao == 1){
+            alvo.receberDanos(getHabilidades().getHead().data.getDamage());
+        }else if(opcao == 2){
+            alvo.receberDanos(getHabilidades().getTail().data.getDamage());
+        }else if(opcao != 1 && opcao != 2){
+            System.out.printf("Opção invalida!\n");
+        }
+    }
     public int getXpAtual() {
         return xpAtual;
     }

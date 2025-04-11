@@ -56,11 +56,11 @@ public class Arena {
                 System.out.print("> ");
                 int opcao = scanner.nextInt();
 
-                ((Personagem) atual).usarHabilidade(opcao, alvo);
+                ((Personagem) atual).usarHabilidade(alvo, opcao);
 
             } else {
                 // Monstro ataca automático com primeira habilidade
-                atual.usarHabilidade(1, alvo);
+                atual.usarHabilidade(alvo, 1);
             }
 
             if (!alvo.estaVivo()) {
@@ -84,7 +84,7 @@ public class Arena {
         System.out.println("\n Status de " + p.getNome() + ":");
         System.out.println("Vida: " + p.getVidaAtual());
         System.out.println("Mana: " + p.getManaAtual());
-        System.out.println("Vigor: " + p.getVigor());
+
     }
 
     private Entidade escolherAlvo(Entidade atacante) {

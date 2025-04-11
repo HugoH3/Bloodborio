@@ -46,7 +46,16 @@ public abstract class Entidade {
         System.out.printf(nome + " Subiu para o nível " + nivel + "!");
     }
 
-    //public abstract void usarHabilidade(int idHabilidade, Entidade alvo);
+    public void usarHabilidade(Entidade alvo, int opcao) {
+        if(opcao == 1){
+            alvo.receberDanos(getHabilidades().getHead().data.getDamage());
+        }else if(opcao == 2){
+            alvo.receberDanos(getHabilidades().getTail().data.getDamage());
+        }else if(opcao != 1 && opcao != 2){
+            System.out.printf("Opção invalida!\n");
+        }
+    }
+
 
     public String getNome() {
         return nome;
