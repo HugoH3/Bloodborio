@@ -1,3 +1,5 @@
+package DataStructure;
+
 public class Pilha<T> {
     private Node<T> topo;
     private int tamanhoMaximo;
@@ -11,7 +13,7 @@ public class Pilha<T> {
 
     public void push(T data) {
         if (isFull()) {
-            System.out.println("ERRO: Pilha cheia");
+            System.out.println("ERRO: DataStructure.Pilha cheia");
             return;
         }
 
@@ -23,7 +25,7 @@ public class Pilha<T> {
 
     public T pop() {
         if (isEmpty()) {
-            System.out.println("ERRO: Pilha vazia");
+            System.out.println("ERRO: DataStructure.Pilha vazia");
             return null;
         }
 
@@ -35,7 +37,7 @@ public class Pilha<T> {
 
     public T peek() {
         if (isEmpty()) {
-            System.out.println("ERRO: Pilha vazia");
+            System.out.println("ERRO: DataStructure.Pilha vazia");
             return null;
         }
         return topo.data;

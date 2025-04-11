@@ -1,4 +1,8 @@
-public class ItemColetavel_Usavel extends ItemColetavel{
+package ItemType;
+
+import Entities.Personagem;
+
+public class ItemColetavel_Usavel extends ItemColetavel {
 
     private String efeito;
 

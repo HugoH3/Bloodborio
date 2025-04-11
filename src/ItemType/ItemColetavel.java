@@ -1,3 +1,7 @@
+package ItemType;
+
+import Entities.Personagem;
+
 public abstract class ItemColetavel extends Item {
     private boolean empilhavel;
     private TipoColetavel tipo;

@@ -1,4 +1,9 @@
-public class Personagem extends Entidade{
+package Entities;
+
+import Abilities.Ability;
+import ItemType.ItemEquipavel;
+import DataStructure.Lista;
+public class Personagem extends Entidade {
 
     private int xpAtual;
     private int xpTotal;

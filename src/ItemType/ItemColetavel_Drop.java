@@ -1,4 +1,8 @@
-public class ItemColetavel_Drop extends ItemColetavel{
+package ItemType;
+
+import Entities.Personagem;
+
+public class ItemColetavel_Drop extends ItemColetavel {
 
     private String origemDrop;
 

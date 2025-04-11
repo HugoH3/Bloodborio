@@ -1,4 +1,8 @@
-public class ItemEquipavel_ArmaFisica extends ItemEquipavel{
+package ItemType;
+
+import Entities.Personagem;
+
+public class ItemEquipavel_ArmaFisica extends ItemEquipavel {
 
     public ItemEquipavel_ArmaFisica(int id, String nome, String desscricao, int nivelNecessario, Item.Raridade raridade,
             int preco, int danoArma, int defesa, int critico, ItemEquipavel.TipoEquipamento tipo, String tipoArma) {

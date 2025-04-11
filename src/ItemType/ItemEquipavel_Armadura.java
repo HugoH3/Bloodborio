@@ -1,4 +1,8 @@
-public class ItemEquipavel_Armadura extends ItemEquipavel{
+package ItemType;
+
+import Entities.Personagem;
+
+public class ItemEquipavel_Armadura extends ItemEquipavel {
 
     public ItemEquipavel_Armadura(int id, String nome, String desscricao, int nivelNecessario, Raridade raridade, int preco, int danoArma, int defesa, int critico, TipoEquipamento tipo) {
         super(id, nome, desscricao, nivelNecessario, raridade, preco, 0, defesa, critico, tipo);

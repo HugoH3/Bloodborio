@@ -1,3 +1,8 @@
+package Entities;
+
+import Abilities.Ability;
+import DataStructure.Lista;
+
 public abstract class Entidade {
     private int id;
     private String nome;

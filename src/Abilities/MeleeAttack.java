@@ -1,4 +1,6 @@
-public class MeleeAttack extends Ability{
+package Abilities;
+
+public class MeleeAttack extends Ability {
 
     private int vigor;
     public MeleeAttack(String name, int damage, int cure, int vigor) {

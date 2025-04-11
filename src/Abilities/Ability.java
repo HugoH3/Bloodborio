@@ -1,3 +1,5 @@
+package Abilities;
+
 public abstract class Ability {
 
     private String name;

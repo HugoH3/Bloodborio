@@ -1,3 +1,6 @@
+import DataStructure.Lista;
+import Entities.Personagem;
+
 public class Jogador {
     private int idJogador;
     private String nome;

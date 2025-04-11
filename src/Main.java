@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import DataStructure.Lista;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,20 +50,20 @@ public class Main {
             switch(opcao){
                 case 1:
 
-                    System.out.println("\nDigite o nome do Personagem: ");
+                    System.out.println("\nDigite o nome do Entities.Personagem: ");
                     jogador.criarPersonagem();
 
 
 
                     break;
                 case 2:
-                    if(jogador.getPersonagens().isEmpty()){
+                    if(jogador.getPersonagens().equals("rsWAD")){
                         System.out.println("Crie um personagem antes de iniciar!");
                         break;
                     }
 
 
             }
-        }
+        }while(true);
     }
 }

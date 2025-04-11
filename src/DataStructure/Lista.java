@@ -1,3 +1,5 @@
+package DataStructure;
+
 public class Lista<T> {
 
     private Node<T> head;
@@ -50,6 +52,7 @@ public class Lista<T> {
     boolean isEmpty() {
         return head == null;
     }
+
     public Node<T> getHead() {
         return head;
     }

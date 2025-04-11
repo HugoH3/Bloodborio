@@ -1,3 +1,7 @@
+package ItemType;
+
+import Entities.Personagem;
+
 public abstract class Item {
     private int id;
     private String nome;

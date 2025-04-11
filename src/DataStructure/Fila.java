@@ -1,3 +1,5 @@
+package DataStructure;
+
 public class Fila<T> {
     private Node<T> head;
     private Node<T> tail;
@@ -29,7 +31,7 @@ public class Fila<T> {
     // Desenfileirar (dequeue)
     public T remove() {
         if (isEmpty()) {
-            System.out.println("Fila vazia");
+            System.out.println("DataStructure.Fila vazia");
             return null;
         } else {
             T removedItem = head.getData();

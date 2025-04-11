@@ -1,3 +1,5 @@
+package Abilities;
+
 public class MagicalAttack extends Ability {
 
     private int mana;

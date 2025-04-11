@@ -1,4 +1,8 @@
-public abstract class ItemEquipavel extends Item{
+package ItemType;
+
+import Entities.Personagem;
+
+public abstract class ItemEquipavel extends Item {
 
     private int danoArma;
     private int defesa;
