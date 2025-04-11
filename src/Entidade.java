@@ -46,6 +46,7 @@ public abstract class Entidade {
         System.out.printf(nome + " Subiu para o nível " + nivel + "!");
     }
 
+
     public void usarHabilidade(Entidade alvo, int opcao) {
         if(opcao == 1){
             alvo.receberDanos(getHabilidades().getHead().data.getDamage());
@@ -108,4 +109,5 @@ public abstract class Entidade {
     public void setHabilidades(Lista<Ability> habilidades) {
         this.habilidades = habilidades;
     }
+         
 }
