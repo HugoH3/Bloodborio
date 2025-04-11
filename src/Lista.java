@@ -47,7 +47,9 @@ public class Lista<T> {
             current = current.prev;
         }
     }
-
+    boolean isEmpty() {
+        return head == null;
+    }
     public Node<T> getHead() {
         return head;
     }
