@@ -46,7 +46,7 @@ public abstract class Entidade {
         System.out.printf(nome + " Subiu para o nível " + nivel + "!");
     }
 
-    public abstract void usarHabilidade(int idHabilidade, Entidade alvo);
+    //public abstract void usarHabilidade(int idHabilidade, Entidade alvo);
 
     public String getNome() {
         return nome;
@@ -66,5 +66,37 @@ public abstract class Entidade {
 
     public Lista<Ability> getHabilidades() {
         return habilidades;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public void setVidaMaxima(int vidaMaxima) {
+        this.vidaMaxima = vidaMaxima;
+    }
+
+    public void setVidaAtual(int vidaAtual) {
+        this.vidaAtual = vidaAtual;
+    }
+
+    public void setManaMaxima(int manaMaxima) {
+        this.manaMaxima = manaMaxima;
+    }
+
+    public void setManaAtual(int manaAtual) {
+        this.manaAtual = manaAtual;
+    }
+
+    public void setHabilidades(Lista<Ability> habilidades) {
+        this.habilidades = habilidades;
     }
 }

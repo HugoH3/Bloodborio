@@ -3,6 +3,7 @@ public abstract class Ability {
     private String name;
     private int damage;
     private int cure;
+    private int id;
 
     public Ability(String name, int damage, int cure) {
         this.name = name;
