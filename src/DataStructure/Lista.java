@@ -10,6 +10,8 @@ public class Lista<T> {
         this.tail = null;
     }
 
+
+
     public void inserirHead(T data) {
         Node<T> newNode = new Node<>(data);
         if (head == null) {
@@ -49,7 +51,7 @@ public class Lista<T> {
             current = current.prev;
         }
     }
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return head == null;
     }
 

@@ -1,6 +1,13 @@
 import java.util.Scanner;
-import DataStructure.Lista;
 
+import Battle.Arena;
+import DataStructure.Fila;
+import DataStructure.Lista;
+import DataStructure.Pilha;
+import Entities.Entidade;
+import Entities.Personagem;
+
+import javax.management.monitor.MonitorSettingException;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -51,18 +58,37 @@ public class Main {
                 case 1:
 
                     System.out.println("\nDigite o nome do Entities.Personagem: ");
-                    jogador.criarPersonagem();
+                    String nomePersonagem = sc.nextLine();
+                    jogador.criarPersonagem(nomePersonagem);
 
 
 
                     break;
                 case 2:
-                    if(jogador.getPersonagens().equals("rsWAD")){
+                    if(jogador.getPersonagens().isEmpty()){
                         System.out.println("Crie um personagem antes de iniciar!");
                         break;
                     }
 
+                    Personagem personagem = jogador.selecionarPersonagemPorScanner(sc);
+                    if (personagem == null) break;
+                    Monstro monstro = new Monstro(99, "Goblin", 1, 60, 20, 20);
 
+
+                    Lista<Entidade> lista = new Lista<>();
+                    Fila<Entidade> fila = new Fila<>();
+                    Pilha<Entidade> pilha = new Pilha<>(20);
+
+                    Arena arena = new Arena(1, lista, fila, pilha);
+                    arena.adicionarParticipante(personagem);
+                    arena.adicionarParticipante(monstro);
+                    arena.iniciarBatalha();
+
+                    while(true){
+                        arena.executarTurno();
+                        if(!personagem.estaVivo() || !monstr.estaVivo()) break;
+                    }
+                    break;
             }
         }while(true);
     }
