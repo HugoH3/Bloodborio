@@ -1,8 +1,9 @@
+package Entities;
+
 import DataStructure.Lista;
-import Entities.Personagem;
+
 import java.util.Scanner;
 import DataStructure.Node;
-import Abilities.Ability;
 import  Abilities.MagicalAttack;
 import  Abilities.MeleeAttack;
 
@@ -28,9 +29,9 @@ public class Jogador {
     }
 
     public void criarPersonagem(String nomeP1) {
-        Personagem personagem = new Personagem(null, 20, 20,20,20,1,nomeP1,1,0,0);
+        Personagem personagem = new Personagem(null, 20, 20,100,100,1,nomeP1,1,0,0);
         personagens.inserirHead(personagem);
-        MeleeAttack ataqueFisico = new MeleeAttack("Espadada", 10, 0, 4);
+        MeleeAttack ataqueFisico = new MeleeAttack("Espadada", 100, 0, 0);
         personagem.adicionarHabilidade(ataqueFisico);
 
 

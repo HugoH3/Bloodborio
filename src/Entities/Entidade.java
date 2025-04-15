@@ -1,18 +1,19 @@
 package Entities;
 
 import Abilities.Ability;
+import Abilities.MeleeAttack;
 import DataStructure.Lista;
 
 public abstract class Entidade {
     private int id;
-    private String nome;
-    private int nivel;
-    private int vidaMaxima;
-    private int vidaAtual;
-    private int manaMaxima;
-    private int manaAtual;
+    public String nome;
+    public int nivel;
+    public int vidaMaxima;
+    public int vidaAtual;
+    public int manaMaxima;
+    public int manaAtual;
 
-    private Lista<Ability> habilidades;
+    public Lista<Ability> habilidades;
 
     public Entidade(Lista<Ability> habilidades, int manaAtual, int manaMaxima, int vidaAtual, int vidaMaxima, int nivel, String nome, int id) {
         this.habilidades = new Lista<>();
@@ -51,6 +52,9 @@ public abstract class Entidade {
         System.out.printf(nome + " Subiu para o nível " + nivel + "!");
     }
 
+    public void adicionarHabilidade(Ability habilidade) {
+        habilidades.inserirHead(habilidade);
+    }
 
     public void usarHabilidade(Entidade alvo, int opcao) {
         if(opcao == 1){
@@ -112,7 +116,7 @@ public abstract class Entidade {
     }
 
     public void setHabilidades(Lista<Ability> habilidades) {
-        this.habilidades = habilidades;
+        this.habilidades = new Lista<>();
     }
          
 }

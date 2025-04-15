@@ -10,6 +10,11 @@ public class Lista<T> {
         this.tail = null;
     }
 
+    public void removerHead() {
+        if (head != null) {
+            head = head.getNext();
+        }
+    }
 
 
     public void inserirHead(T data) {

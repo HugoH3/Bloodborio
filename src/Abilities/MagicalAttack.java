@@ -1,5 +1,7 @@
 package Abilities;
 
+import Entities.Personagem;
+
 public class MagicalAttack extends Ability {
 
     private int mana;
@@ -17,4 +19,6 @@ public class MagicalAttack extends Ability {
     public void setMana(int mana) {
         this.mana = mana;
     }
+
+    public String getName(String name){ return name;}
 }

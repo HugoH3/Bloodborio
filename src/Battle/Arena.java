@@ -43,6 +43,10 @@ public class Arena {
     }
 
     public void executarTurno() {
+
+
+
+
         if (!emAndamento || filaTurnos.isEmpty()) {
             System.out.println("Batalha encerrada ou sem combatentes.");
             return;
@@ -54,6 +58,12 @@ public class Arena {
 
         if (atual.estaVivo()) {
             Entidade alvo = escolherAlvo(atual);
+
+            if (alvo == null || !alvo.estaVivo()) {
+                System.out.println("⚠ Nenhum alvo válido disponível.");
+                verificarVencedor();
+                return;
+            }
 
             if (atual instanceof Personagem) {
                 mostrarStatus((Personagem) atual);
@@ -140,7 +150,7 @@ public class Arena {
         while (!historicoEliminados.isEmpty()) {
             Entidade e = historicoEliminados.pop();
             System.out.println(pos + "º lugar: " + e.getNome());
-            pos--;
+            pos++;
         }
     }
 }

@@ -1,95 +1,102 @@
-import java.util.Scanner;
-
-import Battle.Arena;
-import DataStructure.Fila;
-import DataStructure.Lista;
-import DataStructure.Pilha;
-import Entities.Entidade;
+import Battle.Coliseu;
+import Battle.FlorestaManager;
+import Battle.Loja;
+import Entities.Jogador;
 import Entities.Personagem;
 
-import javax.management.monitor.MonitorSettingException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Jogador jogador = null;
 
-        System.out.printf("BLOODBORIO\n");
+        System.out.println("\uD83C\uDFAE Bem-vindo ao RPG de Batalha!");
 
-        System.out.println("--- Cadastro ---\n");
-        System.out.println("Digite seu nomme de jogador: ");
-        String nome = sc.nextLine();
+        // Cadastro
+        System.out.println("\n--- Cadastro ---");
+        System.out.print("Digite seu nome de jogador: ");
+        String nome = scanner.nextLine();
+        System.out.print("Digite sua senha: ");
+        String senha = scanner.nextLine();
 
-        System.out.printf("\nEscolha uma senha: ");
-        String senha = sc.nextLine();
+        jogador = new Jogador(1, nome, senha, 100, null);
 
-        jogador = new Jogador(1, nome, senha, 0, null);
-
-        System.out.printf("\n--- Login ---");
+        // Login
+        System.out.println("\n--- Login ---");
         boolean autenticado = false;
-
         while (!autenticado) {
-            System.out.printf("\nUsuario: ");
-            String usuario = sc.nextLine();
-
-            System.out.printf("\nSenha: ");
-            String tentativa = sc.nextLine();
-
-            if(jogador.autenticar(usuario, senha)) {
-                System.out.println("Login bem-sucedido!");
+            System.out.print("Usuário: ");
+            String login = scanner.nextLine();
+            System.out.print("Senha: ");
+            String tentativa = scanner.nextLine();
+            if (jogador.autenticar(login, tentativa)) {
+                System.out.println("✅ Login bem-sucedido!");
                 autenticado = true;
             } else {
-                System.out.println("Senha ou login incorretos!");
+                System.out.println("❌ Usuário ou senha incorretos. Tente novamente.");
             }
         }
 
         int opcao;
+        do {
+            System.out.println("\n===== MENU PRINCIPAL =====");
+            System.out.println("1 - Criar Personagem");
+            System.out.println("2 - Ir para a Floresta 🌲");
+            System.out.println("3 - Ir para a Casa 🏠");
+            System.out.println("4 - Loja 🛒");
+            System.out.println("5 - Usar item 🎒");
+            System.out.println("6 - Coliseu");
+            System.out.println("7 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
 
-        do{
-            System.out.println("===== MENU PRINCIPAL =====");
-            System.out.println("1. Criar personagem");
-            System.out.println("2. Iniciar Batalha");
-            System.out.println("3. Loja");
-            System.out.println("4. Sair");
-            System.out.println("Escolha uma opção: ");
-            opcao = sc.nextInt();
-            sc.nextLine();
-
-            switch(opcao){
+            switch (opcao) {
                 case 1:
-
-                    System.out.println("\nDigite o nome do Entities.Personagem: ");
-                    String nomePersonagem = sc.nextLine();
-                    jogador.criarPersonagem(nomePersonagem);
-
-
-
+                    System.out.print("Nome do personagem: ");
+                    String nomePers = scanner.nextLine();
+                    jogador.criarPersonagem(nomePers);
                     break;
+
                 case 2:
-                    if(jogador.getPersonagens().isEmpty()){
-                        System.out.println("Crie um personagem antes de iniciar!");
-                        break;
-                    }
-
-                    Personagem personagem = jogador.selecionarPersonagemPorScanner(sc);
-                    if (personagem == null) break;
-                    Monstro monstro = new Monstro(99, "Goblin", 1, 60, 20, 20);
-
-
-                    Lista<Entidade> lista = new Lista<>();
-                    Fila<Entidade> fila = new Fila<>();
-                    Pilha<Entidade> pilha = new Pilha<>(20);
-
-                    Arena arena = new Arena(1, lista, fila, pilha);
-                    arena.adicionarParticipante(personagem);
-                    arena.adicionarParticipante(monstro);
-                    arena.iniciarBatalha();
-
-                    while(true){
-                        arena.executarTurno();
-                        if(!personagem.estaVivo() || !monstr.estaVivo()) break;
+                    Personagem explorador = jogador.selecionarPersonagemPorScanner(scanner);
+                    if (explorador != null) {
+                        FlorestaManager.explorarFloresta(explorador, jogador, scanner);
                     }
                     break;
+
+                case 3:
+                    Personagem p = jogador.selecionarPersonagemPorScanner(scanner);
+                    if (p != null) {
+                        p.recuperarVidaTotal();
+                        p.recuperarManaTotal();
+                        p.recuperarVigorTotal();
+                        System.out.println("✅ Recuperado com sucesso na Casa!");
+                    }
+                    break;
+
+                case 4:
+                    Loja.abrirLoja(jogador, scanner);
+                    break;
+
+                case 5:
+                    Personagem alvo = jogador.selecionarPersonagemPorScanner(scanner);
+                    if (alvo != null) {
+                        alvo.usarItem(scanner);
+                    }
+                    break;
+                case 6:
+                    Coliseu.iniciarPvP(jogador.getPersonagens(), scanner);
+                    break;
+
+                case 7:
+                    System.out.println("👋 Até logo!");
+                    break;
+
+                default:
+                    System.out.println("❌ Opção inválida.");
             }
-        }while(true);
+        } while (opcao != 6);
     }
 }

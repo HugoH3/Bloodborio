@@ -36,4 +36,8 @@ public abstract class Ability {
     public void setCure(int cure) {
         this.cure = cure;
     }
+
+    public int getCusto() {
+        return cure;
+    }
 }

@@ -2,72 +2,45 @@ package ItemType;
 
 import Entities.Personagem;
 
-public abstract class Item {
-    private int id;
+public class Item {
     private String nome;
-    private String descricao;
-    private int nivelNecessario;
-    private Raridade raridade; 
-    private int preco;
+    private String tipo;
+    private int valor;
 
-    public enum Raridade{
-        COMUM, INCOMUN, RARO, ÉPICO, LENDÁRIO
-    }
-
-    public Item(int id, String nome, String descricao, int nivelNecessario, Item.Raridade raridade, int preco) {
-        this.id = id;
+    public Item(String nome, String tipo, int valor) {
         this.nome = nome;
-        this.descricao = descricao;
-        this.nivelNecessario = nivelNecessario;
-        this.raridade = raridade;
-        this.preco = preco;
-    }
-
-    public int getId() {
-        return id;
+        this.tipo = tipo;
+        this.valor = valor;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getDesscricao() {
-        return descricao;
+    public String getTipo() {
+        return tipo;
     }
 
-    public int getNivelNecessario() {
-        return nivelNecessario;
+    public int getValor() {
+        return valor;
     }
 
-    public Raridade getRaridade() {
-        return raridade;
+    public void usar(Personagem p) {
+        switch (tipo) {
+            case "cura":
+                p.curar(valor);
+                System.out.println("✨ " + nome + " curou " + valor + " de vida.");
+                break;
+            case "mana":
+                p.recuperarMana(valor);
+                System.out.println("🔮 " + nome + " restaurou " + valor + " de mana.");
+                break;
+            case "vigor":
+                p.recuperarVigor(valor);
+                System.out.println("💪 " + nome + " restaurou " + valor + " de vigor.");
+                break;
+            default:
+                System.out.println("❓ Tipo de item desconhecido.");
+        }
     }
-
-    public int getPreco() {
-        return preco;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setNivelNecessario(int nivelNecessario) {
-        this.nivelNecessario = nivelNecessario;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
-    }
-
-
-    public abstract void usar(Personagem personagem);
-
 }
