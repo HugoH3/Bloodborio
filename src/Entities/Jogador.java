@@ -30,10 +30,10 @@ public class Jogador {
 
     public void criarPersonagem(String nomeP1) {
         Personagem personagem = new Personagem(null, 20, 20,100,100,1,nomeP1,1,0,0);
-        personagens.inserirHead(personagem);
+        personagens.inserirTail(personagem); // ✅ só insere uma vez
+
         MeleeAttack ataqueFisico = new MeleeAttack("Espadada", 10, 0, 0);
         personagem.adicionarHabilidade(ataqueFisico);
-
 
         System.out.println("\nEscolha o tipo de magia inicial para " + personagem.getNome() + ":");
         System.out.println("1 - Bola de Fogo 🔥");
@@ -44,7 +44,6 @@ public class Jogador {
         sc.nextLine();
 
         MagicalAttack magiaEscolhida;
-
         switch (escolha) {
             case 1:
                 magiaEscolhida = new MagicalAttack("Bola de Fogo", 20, 0, 5);
@@ -61,12 +60,10 @@ public class Jogador {
         }
 
         personagem.adicionarHabilidade(magiaEscolhida);
-        personagens.inserirHead(personagem);
 
         System.out.println("✅ Personagem " + personagem.getNome() + " criado com sucesso!");
         System.out.println("🔹 Habilidade física: Espadada");
         System.out.println("🔹 Magia inicial: " + magiaEscolhida.getName());
-
     }
 
     public Personagem selecionarPersonagemPorScanner(Scanner scanner) {
