@@ -4,21 +4,11 @@ import Entities.Personagem;
 
 public class MagicalAttack extends Ability {
 
-    private int mana;
-    
 
     public MagicalAttack(String name, int damage, int cure, int mana) {
-        super(name, damage, cure);
-        this.mana = mana;
+        super(name, damage, cure, mana);
     }
 
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
 
     public String getName(String name){ return name;}
 }

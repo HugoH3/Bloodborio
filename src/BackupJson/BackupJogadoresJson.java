@@ -9,7 +9,7 @@ import java.io.*;
 
 public class BackupJogadoresJson {
 
-    private static final String caminho = "jogadores.json";
+    private static final String caminho = "E:\\cesupa 2025\\estrutura de dados\\trabalho issac\\Bloodborio\\Data\\jogadores.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void salvarJogadores(ListaDeJogadores jogadores) {
@@ -49,29 +49,12 @@ public class BackupJogadoresJson {
 
                     abilityJson.addProperty("nome", ability.getName());
                     abilityJson.addProperty("dano", ability.getDamage());
-                    abilityJson.addProperty("custo", ability.getCusto());
+                    abilityJson.addProperty("mana", ability.getMana());
 
                     abilitiesArray.add(abilityJson);
                     atualAbility = atualAbility.getNext();
                 }
                 personagemJson.add("habilidades", abilitiesArray);
-
-                // Serializa itens
-                JsonArray itensArray = new JsonArray();
-                Node<Item> atualItem = personagem.getInventario().getHead();
-                while (atualItem != null) {
-                    Item item = atualItem.getData();
-                    JsonObject itemJson = new JsonObject();
-
-                    itemJson.addProperty("nome", item.getNome());
-                    itemJson.addProperty("tipo", item.getTipo());
-                    itemJson.addProperty("valor", item.getValor());
-                    itemJson.addProperty("descricao", item.getDescricao());
-
-                    itensArray.add(itemJson);
-                    atualItem = atualItem.getNext();
-                }
-                personagemJson.add("itens", itensArray);
 
                 personagensArray.add(personagemJson);
                 atualPersonagem = atualPersonagem.getNext();
@@ -102,6 +85,10 @@ public class BackupJogadoresJson {
                 jogador.setNome(jogadorJson.get("nome").getAsString());
                 jogador.setSenha(jogadorJson.get("senha").getAsString());
 
+                if (jogador.getPersonagens() == null) {
+                    jogador.setPersonagens(new Lista<>());
+                }
+
                 JsonArray personagensArray = jogadorJson.getAsJsonArray("personagens");
                 for (JsonElement personagemElement : personagensArray) {
                     JsonObject personagemJson = personagemElement.getAsJsonObject();
@@ -115,9 +102,11 @@ public class BackupJogadoresJson {
                     personagem.setVidaMaxima(personagemJson.get("vidaMaxima").getAsInt());
                     personagem.setManaAtual(personagemJson.get("manaAtual").getAsInt());
                     personagem.setManaMaxima(personagemJson.get("manaMaxima").getAsInt());
-                    // Vigor ainda não é setado diretamente
 
-                    // Abilities
+                    if (personagem.getHabilidades() == null) {
+                        personagem.setHabilidades(new Lista<>());
+                    }
+
                     JsonArray abilitiesArray = personagemJson.getAsJsonArray("habilidades");
                     for (JsonElement abilityElement : abilitiesArray) {
                         JsonObject abilityJson = abilityElement.getAsJsonObject();
@@ -125,23 +114,9 @@ public class BackupJogadoresJson {
 
                         ability.setName(abilityJson.get("nome").getAsString());
                         ability.setDamage(abilityJson.get("dano").getAsInt());
-                        ability.setCusto(abilityJson.get("custo").getAsInt());
+                        ability.setMana(abilityJson.get("mana").getAsInt());
 
                         personagem.getHabilidades().inserirTail(ability);
-                    }
-
-                    // Itens
-                    JsonArray itensArray = personagemJson.getAsJsonArray("itens");
-                    for (JsonElement itemElement : itensArray) {
-                        JsonObject itemJson = itemElement.getAsJsonObject();
-                        Item item = new Item();
-
-                        item.setNome(itemJson.get("nome").getAsString());
-                        item.setTipo(itemJson.get("tipo").getAsString());
-                        item.setValor(itemJson.get("valor").getAsInt());
-                        item.setDescricao(itemJson.get("descricao").getAsString());
-
-                        personagem.getInventario().inserirTail(item);
                     }
 
                     jogador.getPersonagens().inserirTail(personagem);

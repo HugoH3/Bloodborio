@@ -1,0 +1,54 @@
+[
+  {
+    "nome": "liborio",
+    "senha": "1234",
+    "personagens": [
+      {
+        "nome": "3",
+        "xpAtual": 0,
+        "xpTotal": 0,
+        "nivel": 1,
+        "vidaAtual": 20,
+        "vidaMaxima": 20,
+        "manaAtual": 20,
+        "manaMaxima": 20,
+        "vigor": 50,
+        "habilidades": [
+          {
+            "nome": "Bola de Fogo",
+            "dano": 20,
+            "mana": 5
+          },
+          {
+            "nome": "Espadada",
+            "dano": 10,
+            "mana": 0
+          }
+        ]
+      },
+      {
+        "nome": "joao",
+        "xpAtual": 0,
+        "xpTotal": 0,
+        "nivel": 1,
+        "vidaAtual": 20,
+        "vidaMaxima": 20,
+        "manaAtual": 20,
+        "manaMaxima": 20,
+        "vigor": 50,
+        "habilidades": [
+          {
+            "nome": "Lança de Gelo",
+            "dano": 18,
+            "mana": 3
+          },
+          {
+            "nome": "Espadada",
+            "dano": 10,
+            "mana": 0
+          }
+        ]
+      }
+    ]
+  }
+]

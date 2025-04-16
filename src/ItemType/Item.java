@@ -30,6 +30,8 @@ public class Item {
         this.nome = nome;
     }
 
+
+
     public void usar(Personagem p) {
         switch (tipo) {
             case "cura":

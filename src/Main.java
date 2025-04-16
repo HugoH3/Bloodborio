@@ -5,7 +5,6 @@ import Battle.Loja;
 import Entities.Jogador;
 import Entities.ListaDeJogadores;
 import Entities.Personagem;
-import BackupJson.BackupJogadoresJson;
 
 import java.util.Scanner;
 
@@ -67,6 +66,7 @@ public class Main {
             System.out.println("\n--- Menu Inicial ---");
             System.out.println("1 - Novo Jogador");
             System.out.println("2 - Entrar com Jogador Existente");
+            System.out.println("3 - Backup Jogadores");
             System.out.print("Escolha uma opção: ");
             int escolha = scanner.nextInt();
             scanner.nextLine();
@@ -99,7 +99,12 @@ public class Main {
                 } else {
                     System.out.println("❌ Usuário ou senha incorretos.");
                 }
-            } else {
+            } else if(escolha==3) {
+                banco = BackupJogadoresJson.carregarJogadores();
+                banco.exibirTodos();
+            }
+
+                else {
                 System.out.println("❌ Opção inválida.");
             }
         }
@@ -136,7 +141,7 @@ public class Main {
                     pausa(3000);
                     System.out.print("Qual seu nome, Acendedor? : ");
                     String nomePers = scanner.nextLine();
-                    jogadorLogado.criarPersonagem(nomePers);
+                    jogadorLogado.criarPersonagem(nomePers,banco);
                     break;
 
                 case 2:
@@ -250,7 +255,6 @@ public class Main {
                         }
                     }
                     break;
-
 
                 default:
                     System.out.println("❌ Opção inválida.");
