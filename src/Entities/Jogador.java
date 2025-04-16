@@ -15,6 +15,10 @@ public class Jogador {
     private Lista<Personagem> personagens;
     Scanner sc = new Scanner(System.in);
 
+    public Jogador() {
+
+    }
+
     public Jogador(int idJogador, String nome, String senha, int saldoMoedas, Lista<Personagem> personagens) {
         this.idJogador = idJogador;
         this.nome = nome;
@@ -22,6 +26,8 @@ public class Jogador {
         this.saldoMoedas = saldoMoedas;
         this.personagens = new Lista<>();
     }
+
+
 
     public boolean autenticar(String nome, String senha) {
 

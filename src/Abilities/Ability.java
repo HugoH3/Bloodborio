@@ -1,6 +1,6 @@
 package Abilities;
 
-public abstract class Ability {
+public class Ability {
 
     private String name;
     private int damage;
@@ -12,6 +12,7 @@ public abstract class Ability {
         this.damage = damage;
         this.cure = cure;
     }
+    public Ability() {}
 
     public String getName() {
         return name;
@@ -40,4 +41,6 @@ public abstract class Ability {
     public int getCusto() {
         return cure;
     }
+
+
 }

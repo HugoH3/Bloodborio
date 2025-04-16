@@ -12,6 +12,7 @@ public class Item {
         this.tipo = tipo;
         this.valor = valor;
     }
+    public Item(){}
 
     public String getNome() {
         return nome;
@@ -23,6 +24,10 @@ public class Item {
 
     public int getValor() {
         return valor;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void usar(Personagem p) {

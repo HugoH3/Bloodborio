@@ -24,6 +24,9 @@ public class Personagem extends Entidade {
         this.inventario = new Lista<>();
     }
 
+    public Personagem(){}
+
+
     public void usarHabilidade(Entidade alvo, int tipo) {
         if (habilidades == null || habilidades.getHead() == null) {
             System.out.println("⚠ Nenhuma habilidade disponível!");
@@ -174,4 +177,12 @@ public class Personagem extends Entidade {
     public int getXpTotal() { return xpTotal; }
     public void setXpTotal(int xpTotal) { this.xpTotal = xpTotal; }
     public int getVigor() { return vigor; }
+
+    public Lista<Item> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Lista<Item> inventario) {
+        this.inventario = inventario;
+    }
 }
