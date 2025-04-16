@@ -45,8 +45,6 @@ public class Arena {
     public void executarTurno() {
 
 
-
-
         if (!emAndamento || filaTurnos.isEmpty()) {
             System.out.println("Batalha encerrada ou sem combatentes.");
             return;

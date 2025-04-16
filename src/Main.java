@@ -1,9 +1,11 @@
+import BackupJson.BackupJogadoresJson;
 import Battle.Coliseu;
 import Battle.FlorestaManager;
 import Battle.Loja;
 import Entities.Jogador;
 import Entities.ListaDeJogadores;
 import Entities.Personagem;
+import BackupJson.BackupJogadoresJson;
 
 import java.util.Scanner;
 
@@ -37,6 +39,7 @@ public class Main {
                 String senha = scanner.nextLine();
                 Jogador novo = new Jogador(1, nome, senha, 100, null);
                 banco.adicionarJogador(novo);
+                BackupJogadoresJson.salvarJogadores(banco);
                 System.out.println("✅ Jogador criado com sucesso! Faça login para continuar.");
             } else if (escolha == 2) {
                 System.out.print("Usuário: ");

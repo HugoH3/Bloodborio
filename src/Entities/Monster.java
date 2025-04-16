@@ -20,5 +20,7 @@ public class Monster extends Entidade{
         this.xpDrop = xpDrop;
     }
 
+    public void estarVivo(){}
+
 
 }

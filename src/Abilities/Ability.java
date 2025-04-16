@@ -1,6 +1,6 @@
 package Abilities;
 
-public abstract class Ability {
+public class Ability {
 
     private String name;
     private int damage;
