@@ -130,6 +130,7 @@ public class Main {
             System.out.println("6 - Disciplina interior");
             System.out.println("7 - Sair");
             System.out.println("8 - Trocar de Conta");
+            System.out.println("9 - Salvar Jogo");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine();
@@ -263,7 +264,9 @@ public class Main {
                         }
                     }
                     break;
-
+                case 9:
+                    BackupJogadoresJson.salvarJogadores(banco);
+                    System.out.println("Jogo Salvo.");
                 default:
                     System.out.println("❌ Opção inválida.");
             }

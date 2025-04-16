@@ -9,7 +9,7 @@ import java.io.*;
 
 public class BackupJogadoresJson {
 
-    private static final String caminho = "E:\\cesupa 2025\\estrutura de dados\\trabalho issac\\Bloodborio\\Data\\jogadores.json";
+    private static final String caminho = "Data\\jogadores.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void salvarJogadores(ListaDeJogadores jogadores) {

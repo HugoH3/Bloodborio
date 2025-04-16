@@ -117,7 +117,7 @@ public class Jogador {
                 } else {
                     anterior.setNext(atual.getNext());
                 }
-                System.out.println("❌ Personagem " + alvo.getNome() + " foi removido.");
+                System.out.println("❌ Personagem " + alvo.getNome() + " foi brutalizado.");
                 return;
             }
             anterior = atual;
