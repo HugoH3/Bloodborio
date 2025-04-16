@@ -24,43 +24,52 @@ public class Main {
         ListaDeJogadores banco = new ListaDeJogadores();
         Jogador jogadorLogado = null;
 
+        System.out.println("Deseja assistir à introdução?");
+        System.out.println("1 - Sim");
+        System.out.println("2 - Pular");
+        System.out.print("> ");
+        int resposta = scanner.nextInt();
+        scanner.nextLine();
 
+        if(resposta == 1) {
 
-        System.out.println("\n\n🕯️...");
-        pausa(1200);
-        System.out.println("Voz antiga sussurra entre as sombras...\n");
-        pausa(2000);
+            System.out.println("\n\n🕯️...");
+            pausa(1200);
+            System.out.println("Voz antiga sussurra entre as sombras...\n");
+            pausa(2000);
 
-        System.out.println("\"Mais um...\"");
-        pausa(1800);
-        System.out.println("\"Outro tolo com esperança nas mãos e cinzas nos olhos.\"\n");
-        pausa(2500);
+            System.out.println("\"Mais um...\"");
+            pausa(1800);
+            System.out.println("\"Outro tolo com esperança nas mãos e cinzas nos olhos.\"\n");
+            pausa(2500);
 
-        System.out.println("\"Você vem como os outros vieram. Com bravura. Com fé. Com a ilusão de que importa.\"");
-        pausa(3000);
-        System.out.println("\"Mas escute bem, Acendedor...\"");
-        pausa(2200);
+            System.out.println("\"Você vem como os outros vieram. Com bravura. Com fé. Com a ilusão de que importa.\"");
+            pausa(3000);
+            System.out.println("\"Mas escute bem, Acendedor...\"");
+            pausa(2200);
 
-        System.out.println("\"A luz se foi. Ela nos abandonou, assim como abandonará você.\"\n");
-        pausa(2800);
+            System.out.println("\"A luz se foi. Ela nos abandonou, assim como abandonará você.\"\n");
+            pausa(2800);
 
-        System.out.println("\"Lian... aquela que era tudo, foi traída. Aprisionada. Corrompida. E vocês a chamam de salvação?\"");
-        pausa(3000);
+            System.out.println("\"Lian... aquela que era tudo, foi traída. Aprisionada. Corrompida. E vocês a chamam de salvação?\"");
+            pausa(3000);
 
-        System.out.println("\"Dormar a consome. A escuridão se alimenta de suas memórias.\"\n");
-        pausa(2500);
+            System.out.println("\"Dormar a consome. A escuridão se alimenta de suas memórias.\"\n");
+            pausa(2500);
 
-        System.out.println("\"Mil pés já pisaram este caminho. Mil corpos jazem esquecidos.\"\n");
-        pausa(2000);
+            System.out.println("\"Mil pés já pisaram este caminho. Mil corpos jazem esquecidos.\"\n");
+            pausa(2000);
 
-        System.out.println("\"Você... não é especial.\"\n");
-        pausa(1800);
+            System.out.println("\"Você... não é especial.\"\n");
+            pausa(1800);
 
-        System.out.println("\"Mas vá. Acenda o que puder. Queime-se tentando.\"\n");
-        pausa(2200);
+            System.out.println("\"Mas vá. Acenda o que puder. Queime-se tentando.\"\n");
+            pausa(2200);
 
-        System.out.println("🌫️ A névoa se dissipa, e o mundo respira silêncio.\n\n");
-        pausa(2500);
+            System.out.println("🌫️ A névoa se dissipa, e o mundo respira silêncio.\n\n");
+            pausa(2500);
+        }
+
 
         // === MENU INICIAL ===
         while (jogadorLogado == null) {
@@ -123,17 +132,16 @@ public class Main {
             switch (opcao) {
                 case 1:
                     System.out.println("\n🌘 Você sente... algo despertar.");
-                    pausa(1800);
+
                     System.out.println("Não é carne. Não é alma. É propósito.");
-                    pausa(2000);
+
 
                     System.out.println("\"Um novo nome nasce entre as sombras...\"");
-                    pausa(2200);
+
                     System.out.println("\"Outro Acendedor ergue sua tocha contra o vazio.\"\n");
-                    pausa(2400);
 
                     System.out.println("\"Lembre-se: a luz que você carrega é tudo o que resta. Proteja-a. Corrompa-a. Ou... acenda o mundo novamente.\"");
-                    pausa(3000);
+
                     System.out.print("Qual seu nome, Acendedor? : ");
                     String nomePers = scanner.nextLine();
                     jogadorLogado.criarPersonagem(nomePers);
@@ -141,13 +149,13 @@ public class Main {
 
                 case 2:
                     System.out.println("\n🌑 O chão pulsa sob seus pés.");
-                    pausa(1800);
+
                     System.out.println("Este não é apenas um bosque. É o coração que lateja por trás da noite.");
-                    pausa(2200);
+
                     System.out.println("\"Dormar te observa. Dormar te lembra.\"");
-                    pausa(2400);
+
                     System.out.println("\"E cada passo é uma batida mais perto do fim.\"");
-                    pausa(2600);
+
 
                     Personagem explorador = jogadorLogado.selecionarPersonagemPorScanner(scanner);
                     if (explorador != null) {
@@ -157,11 +165,11 @@ public class Main {
 
                 case 3:
                     System.out.println("\n🕯️ A fogueira dança, mas o calor não aquece.");
-                    pausa(1800);
+
                     System.out.println("A brisa sussurra memórias que não são suas.");
-                    pausa(2200);
+
                     System.out.println("\"Descansar... por ora. Mas não se esqueça: a noite não dorme.\"");
-                    pausa(2500);
+
 
                     Personagem p = jogadorLogado.selecionarPersonagemPorScanner(scanner);
                     if (p != null) {
@@ -174,13 +182,13 @@ public class Main {
 
                 case 4:
                     System.out.println("\n🌒 Você atravessa a névoa e encontra O Visitante.");
-                    pausa(2000);
+
                     System.out.println("Ele não tem rosto, mas parece sorrir.");
-                    pausa(1800);
+
                     System.out.println("\"Então você também veio buscar luz nas sobras, Acendedor?\"");
-                    pausa(2400);
+
                     System.out.println("\"Eu vendo o que resta dos sonhos quebrados. Mas tudo tem um preço...\"");
-                    pausa(2600);
+
 
                     Loja.abrirLoja(jogadorLogado, scanner);
                     break;
@@ -194,11 +202,11 @@ public class Main {
 
                 case 6:
                     System.out.println("\n🏛️ As portas se fecham atrás de você.");
-                    pausa(1500);
+
                     System.out.println("Não há plateia. Apenas ecos da sua própria alma.");
-                    pausa(2000);
+
                     System.out.println("\"Aqui não se enfrentam monstros...\"");
-                    pausa(1800);
+
                     System.out.println("\"Aqui você enfrentará aquilo que você esconde de si mesmo.\"");
                     pausa(2600);
 

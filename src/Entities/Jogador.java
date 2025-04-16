@@ -41,10 +41,10 @@ public class Jogador {
         MeleeAttack ataqueFisico = new MeleeAttack("Espadada", 10, 0, 0);
         personagem.adicionarHabilidade(ataqueFisico);
 
-        System.out.println("\nEscolha o tipo de magia inicial para " + personagem.getNome() + ":");
-        System.out.println("1 - Bola de Fogo 🔥");
-        System.out.println("2 - Lança de Gelo ❄");
-        System.out.println("3 - Raio Elétrico ⚡");
+        System.out.println("\nO que te fascina mais? " + personagem.getNome() + ":");
+        System.out.println("1 - Fogo");
+        System.out.println("2 - Escuro");
+        System.out.println("3 - Mentes");
         System.out.print("> ");
         int escolha = sc.nextInt();
         sc.nextLine();
@@ -52,17 +52,17 @@ public class Jogador {
         MagicalAttack magiaEscolhida;
         switch (escolha) {
             case 1:
-                magiaEscolhida = new MagicalAttack("Bola de Fogo", 20, 0, 5);
+                magiaEscolhida = new MagicalAttack("Espirto da Chama", 20, 0, 5);
                 break;
             case 2:
-                magiaEscolhida = new MagicalAttack("Lança de Gelo", 18, 0,3);
+                magiaEscolhida = new MagicalAttack("Lança Afelia", 18, 0,3);
                 break;
             case 3:
-                magiaEscolhida = new MagicalAttack("Raio Elétrico", 12, 12, 3);
+                magiaEscolhida = new MagicalAttack("Condução Insana", 12, 12, 3);
                 break;
             default:
-                System.out.println("⚠ Escolha inválida. Atribuindo 'Bola de Fogo' por padrão.");
-                magiaEscolhida = new MagicalAttack("Bola de Fogo", 20, 0, 5);
+                System.out.println("⚠ Escolha inválida. Atribuindo 'Espirito da Chama' por padrão.");
+                magiaEscolhida = new MagicalAttack("Espirito da Chama", 20, 0, 5);
         }
 
         personagem.adicionarHabilidade(magiaEscolhida);
