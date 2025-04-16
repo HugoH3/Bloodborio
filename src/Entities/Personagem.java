@@ -24,20 +24,11 @@ public class Personagem extends Entidade {
         this.inventario = new Lista<>();
     }
 
-    public void usarHabilidade(Entidade alvo, int opcao) {
+    public void usarHabilidade(Entidade alvo, int tipo) {
         if (habilidades == null || habilidades.getHead() == null) {
             System.out.println("⚠ Nenhuma habilidade disponível!");
             return;
         }
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\n🔹 Status de " + getNome() + ":");
-        System.out.println("Vida: " + getVidaAtual() + " | Mana: " + getManaAtual() + " | Vigor: " + getVigor());
-
-        System.out.println("Escolha o tipo de habilidade:");
-        System.out.println("1 - Físicas");
-        System.out.println("2 - Mágicas");
-        int tipo = scanner.nextInt();
 
         Node<Ability> atual = habilidades.getHead();
         Lista<Ability> listaExibida = new Lista<>();
@@ -58,6 +49,7 @@ public class Personagem extends Entidade {
             return;
         }
 
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Escolha a habilidade: ");
         int escolha = scanner.nextInt();
         Node<Ability> nodeEscolhido = listaExibida.getHead();
@@ -90,6 +82,7 @@ public class Personagem extends Entidade {
             }
         }
     }
+
 
     public void adicionarItem(Item item) {
         inventario.inserirHead(item);

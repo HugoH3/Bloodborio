@@ -69,6 +69,10 @@ public class Arena {
                 mostrarStatus((Personagem) atual);
 
                 Scanner scanner = new Scanner(System.in);
+                System.out.println("Escolha sua ação:");
+                System.out.println("1 - Ataque físico");
+                System.out.println("2 - Ataque mágico");
+                System.out.print("> ");
                 int opcao = scanner.nextInt();
 
                 ((Personagem) atual).usarHabilidade(alvo, opcao);
