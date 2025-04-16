@@ -12,6 +12,7 @@ public class Ability {
         this.damage = damage;
         this.cure = cure;
     }
+    public Ability() {}
 
     public String getName() {
         return name;
@@ -40,4 +41,6 @@ public class Ability {
     public int getCusto() {
         return cure;
     }
+
+
 }

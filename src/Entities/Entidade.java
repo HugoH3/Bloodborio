@@ -26,6 +26,10 @@ public abstract class Entidade {
         this.id = id;
     }
 
+    public Entidade() {
+
+    }
+
     public void receberDanos(int dano) {
         this.vidaAtual -= dano;
         if (this.vidaAtual < 0) {
@@ -113,6 +117,14 @@ public abstract class Entidade {
 
     public void setManaAtual(int manaAtual) {
         this.manaAtual = manaAtual;
+    }
+
+    public int getVidaMaxima() {
+        return vidaMaxima;
+    }
+
+    public int getManaMaxima() {
+        return manaMaxima;
     }
 
     public void setHabilidades(Lista<Ability> habilidades) {
