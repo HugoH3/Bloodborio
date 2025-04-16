@@ -29,7 +29,7 @@ public class Jogador {
     }
 
     public void criarPersonagem(String nomeP1) {
-        Personagem personagem = new Personagem(null, 20, 20,100,100,1,nomeP1,1,0,0);
+        Personagem personagem = new Personagem(null, 20, 20,20,20,1,nomeP1,1,0,0);
         personagens.inserirTail(personagem); // ✅ só insere uma vez
 
         MeleeAttack ataqueFisico = new MeleeAttack("Espadada", 10, 0, 0);

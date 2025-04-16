@@ -8,12 +8,57 @@ import Entities.Personagem;
 import java.util.Scanner;
 
 public class Main {
+
+    public static void pausa(int milissegundos) {
+        try {
+            Thread.sleep(milissegundos);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ListaDeJogadores banco = new ListaDeJogadores();
         Jogador jogadorLogado = null;
 
-        System.out.println("🎮 Bem-vindo ao RPG de Batalha!");
+
+
+        System.out.println("\n\n🕯️...");
+        pausa(1200);
+        System.out.println("Voz antiga sussurra entre as sombras...\n");
+        pausa(2000);
+
+        System.out.println("\"Mais um...\"");
+        pausa(1800);
+        System.out.println("\"Outro tolo com esperança nas mãos e cinzas nos olhos.\"\n");
+        pausa(2500);
+
+        System.out.println("\"Você vem como os outros vieram. Com bravura. Com fé. Com a ilusão de que importa.\"");
+        pausa(3000);
+        System.out.println("\"Mas escute bem, Acendedor...\"");
+        pausa(2200);
+
+        System.out.println("\"A luz se foi. Ela nos abandonou, assim como abandonará você.\"\n");
+        pausa(2800);
+
+        System.out.println("\"Lian... aquela que era tudo, foi traída. Aprisionada. Corrompida. E vocês a chamam de salvação?\"");
+        pausa(3000);
+
+        System.out.println("\"Dormar a consome. A escuridão se alimenta de suas memórias.\"\n");
+        pausa(2500);
+
+        System.out.println("\"Mil pés já pisaram este caminho. Mil corpos jazem esquecidos.\"\n");
+        pausa(2000);
+
+        System.out.println("\"Você... não é especial.\"\n");
+        pausa(1800);
+
+        System.out.println("\"Mas vá. Acenda o que puder. Queime-se tentando.\"\n");
+        pausa(2200);
+
+        System.out.println("🌫️ A névoa se dissipa, e o mundo respira silêncio.\n\n");
+        pausa(2500);
 
         // === MENU INICIAL ===
         while (jogadorLogado == null) {
@@ -60,12 +105,12 @@ public class Main {
         int opcao;
         do {
             System.out.println("\n===== MENU PRINCIPAL =====");
-            System.out.println("1 - Criar Personagem");
-            System.out.println("2 - Ir para a Floresta 🌲");
-            System.out.println("3 - Ir para a Casa 🏠");
-            System.out.println("4 - Loja 🛒");
-            System.out.println("5 - Usar item 🎒");
-            System.out.println("6 - Coliseu 🏟️");
+            System.out.println("1 - Acender uma chama");
+            System.out.println("2 - Ir para o coração de Dormar");
+            System.out.println("3 - Descansar perto a fogueira");
+            System.out.println("4 - Falar com o Visitante");
+            System.out.println("5 - Bolsa");
+            System.out.println("6 - Disciplina interior");
             System.out.println("7 - Sair");
             System.out.println("8 - Trocar de Conta");
             System.out.print("Escolha uma opção: ");
@@ -74,12 +119,33 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.print("Nome do personagem: ");
+                    System.out.println("\n🌘 Você sente... algo despertar.");
+                    pausa(1800);
+                    System.out.println("Não é carne. Não é alma. É propósito.");
+                    pausa(2000);
+
+                    System.out.println("\"Um novo nome nasce entre as sombras...\"");
+                    pausa(2200);
+                    System.out.println("\"Outro Acendedor ergue sua tocha contra o vazio.\"\n");
+                    pausa(2400);
+
+                    System.out.println("\"Lembre-se: a luz que você carrega é tudo o que resta. Proteja-a. Corrompa-a. Ou... acenda o mundo novamente.\"");
+                    pausa(3000);
+                    System.out.print("Qual seu nome, Acendedor? : ");
                     String nomePers = scanner.nextLine();
                     jogadorLogado.criarPersonagem(nomePers);
                     break;
 
                 case 2:
+                    System.out.println("\n🌑 O chão pulsa sob seus pés.");
+                    pausa(1800);
+                    System.out.println("Este não é apenas um bosque. É o coração que lateja por trás da noite.");
+                    pausa(2200);
+                    System.out.println("\"Dormar te observa. Dormar te lembra.\"");
+                    pausa(2400);
+                    System.out.println("\"E cada passo é uma batida mais perto do fim.\"");
+                    pausa(2600);
+
                     Personagem explorador = jogadorLogado.selecionarPersonagemPorScanner(scanner);
                     if (explorador != null) {
                         FlorestaManager.explorarFloresta(explorador, jogadorLogado, scanner);
@@ -87,16 +153,32 @@ public class Main {
                     break;
 
                 case 3:
+                    System.out.println("\n🕯️ A fogueira dança, mas o calor não aquece.");
+                    pausa(1800);
+                    System.out.println("A brisa sussurra memórias que não são suas.");
+                    pausa(2200);
+                    System.out.println("\"Descansar... por ora. Mas não se esqueça: a noite não dorme.\"");
+                    pausa(2500);
+
                     Personagem p = jogadorLogado.selecionarPersonagemPorScanner(scanner);
                     if (p != null) {
                         p.recuperarVidaTotal();
                         p.recuperarManaTotal();
                         p.recuperarVigorTotal();
-                        System.out.println("✅ Recuperado com sucesso na Casa!");
+                        System.out.println("Talvez seja perigoso continuar parado.");
                     }
                     break;
 
                 case 4:
+                    System.out.println("\n🌒 Você atravessa a névoa e encontra O Visitante.");
+                    pausa(2000);
+                    System.out.println("Ele não tem rosto, mas parece sorrir.");
+                    pausa(1800);
+                    System.out.println("\"Então você também veio buscar luz nas sobras, Acendedor?\"");
+                    pausa(2400);
+                    System.out.println("\"Eu vendo o que resta dos sonhos quebrados. Mas tudo tem um preço...\"");
+                    pausa(2600);
+
                     Loja.abrirLoja(jogadorLogado, scanner);
                     break;
 
@@ -108,11 +190,20 @@ public class Main {
                     break;
 
                 case 6:
+                    System.out.println("\n🏛️ As portas se fecham atrás de você.");
+                    pausa(1500);
+                    System.out.println("Não há plateia. Apenas ecos da sua própria alma.");
+                    pausa(2000);
+                    System.out.println("\"Aqui não se enfrentam monstros...\"");
+                    pausa(1800);
+                    System.out.println("\"Aqui você enfrentará aquilo que você esconde de si mesmo.\"");
+                    pausa(2600);
+
                     Coliseu.iniciarPvPDoisJogadores(banco, scanner);
                     break;
 
                 case 7:
-                    System.out.println("👋 Até logo!");
+                    System.out.println("A chama se apaga...");
                     break;
                 case 8:
                     jogadorLogado = null; // força a sair do menu e voltar ao login
@@ -129,7 +220,7 @@ public class Main {
                             String nome = scanner.nextLine();
 
                             if (banco.nomeExiste(nome)) {
-                                System.out.println("❌ Nome já está em uso.");
+                                System.out.println("Nome já está em uso.");
                                 continue;
                             }
 
