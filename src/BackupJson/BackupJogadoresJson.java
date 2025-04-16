@@ -138,8 +138,8 @@ public class BackupJogadoresJson {
 
                         item.setNome(itemJson.get("nome").getAsString());
                         item.setTipo(itemJson.get("tipo").getAsString());
-                       item.setValor(itemJson.get("valor").getAsInt());
-                       item.setDescricao(itemJson.get("descricao").getAsString());
+                        item.setValor(itemJson.get("valor").getAsInt());
+                        item.setDescricao(itemJson.get("descricao").getAsString());
 
                         personagem.getInventario().inserirTail(item);
                     }

@@ -6,11 +6,13 @@ public class Ability {
     private int damage;
     private int cure;
     private int id;
+    private int mana;
 
-    public Ability(String name, int damage, int cure) {
+    public Ability(String name, int damage, int cure, int mana) {
         this.name = name;
         this.damage = damage;
         this.cure = cure;
+        this.mana = mana;
     }
     public Ability() {}
 
@@ -42,5 +44,11 @@ public class Ability {
         return cure;
     }
 
+    public int getMana() {
+        return mana;
+    }
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
 }

@@ -1,5 +1,6 @@
 package Entities;
 
+import BackupJson.BackupJogadoresJson;
 import DataStructure.Lista;
 
 import java.util.Scanner;
@@ -34,7 +35,7 @@ public class Jogador {
         return this.nome.equals(nome) && this.senha.equals(senha);
     }
 
-    public void criarPersonagem(String nomeP1) {
+    public void criarPersonagem(String nomeP1, ListaDeJogadores banco) {
         Personagem personagem = new Personagem(null, 20, 20,20,20,1,nomeP1,1,0,0);
         personagens.inserirTail(personagem); // ✅ só insere uma vez
 
@@ -66,6 +67,7 @@ public class Jogador {
         }
 
         personagem.adicionarHabilidade(magiaEscolhida);
+        BackupJogadoresJson.salvarJogadores(banco);
 
         System.out.println("✅ Personagem " + personagem.getNome() + " criado com sucesso!");
         System.out.println("🔹 Habilidade física: Espadada");
