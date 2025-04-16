@@ -66,7 +66,7 @@ public class BackupJogadoresJson {
                     itemJson.addProperty("nome", item.getNome());
                     itemJson.addProperty("tipo", item.getTipo());
                     itemJson.addProperty("valor", item.getValor());
-                    //itemJson.addProperty("descricao", item.getDescricao());
+                    itemJson.addProperty("descricao", item.getDescricao());
 
                     itensArray.add(itemJson);
                     atualItem = atualItem.getNext();
@@ -125,7 +125,7 @@ public class BackupJogadoresJson {
 
                         ability.setName(abilityJson.get("nome").getAsString());
                         ability.setDamage(abilityJson.get("dano").getAsInt());
-                        //ability.setCusto(abilityJson.get("custo").getAsInt());
+                        ability.setCusto(abilityJson.get("custo").getAsInt());
 
                         personagem.getHabilidades().inserirTail(ability);
                     }
@@ -137,9 +137,9 @@ public class BackupJogadoresJson {
                         Item item = new Item();
 
                         item.setNome(itemJson.get("nome").getAsString());
-                        //item.setTipo(itemJson.get("tipo").getAsString());
-                       // item.setValor(itemJson.get("valor").getAsInt());
-                       // item.setDescricao(itemJson.get("descricao").getAsString());
+                        item.setTipo(itemJson.get("tipo").getAsString());
+                       item.setValor(itemJson.get("valor").getAsInt());
+                       item.setDescricao(itemJson.get("descricao").getAsString());
 
                         personagem.getInventario().inserirTail(item);
                     }
