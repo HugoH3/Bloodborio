@@ -13,7 +13,9 @@ public class ListaDeJogadores {
     public void adicionarJogador(Jogador jogador) {
         jogadores.inserirTail(jogador); // adiciona ao final da lista
     }
-
+    public Lista<Jogador> getJogadores() {
+        return jogadores;
+    }
     public Jogador buscarPorLogin(String nome, String senha) {
         Node<Jogador> atual = jogadores.getHead();
         while (atual != null) {
